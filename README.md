@@ -4,7 +4,7 @@
 |![twitter snippet](/images/twittersnippet.png)| ![twitter logo](/images/logo_twitter.png)|
 |----------------------------------------------|------------------------------------------|
 
-Table of Contents --- make it a list of links at the end when everythong is ready ---
+## Table of Contents --- make it a list of links at the end when everythong is ready ---
 
 ## Introduction and Project Goals
   Creating healthy public conversation through data analysis and thorough __text analysis__ of suspended Twitter accounts originated from Russia using **Twitter's Elections Integrity Dataset** that was published in January 2019. <br />
@@ -15,17 +15,16 @@ Table of Contents --- make it a list of links at the end when everythong is read
 ## Problem: 
 
   **Engineering Public Opinion** is a significant concern to the public, officials and every one, really. It is on the forefront of any modern political and/or money divide. It is the problem of our time and Social networks have come under fire for their inability to prevent the manipulation of news and information by potentially malicious actors. 
- 
-
-## The Data:
+<p align="left"> 
+<img src=/images/data.png width="75"/>
+</p>
 
 * [Twitter Election Integrity Data Set, Russia](https://about.twitter.com/en_us/values/elections-integrity.html#data) include all public, non deleted Tweets from accounts Twitter believes are connected to state-backed information operations. Tweets deleted by these users prior to their suspension (which are not included in this dataset) comprise less than 1% of their overall activity. Twitter also provides 
-
 * Dataset consisted of 416 accounts allegedly originated in Russia and their tweet content. 
 
 ## Libraries and Top Tools Used:
 
-`Pandas, numpy`  - Data Handling, Linear ALgebra:
+`Pandas, numpy`  - Data Handling, Linear ALgebra
 `Gensim, gensim corpora, gensim Coherence Model, Sklearn` - Topic Modeling 
 `Sklearn CountVectorizer` 
 `Matplotlib, Seaborn, pyLDAvis, WordCloud` -- Visualizations
@@ -46,23 +45,24 @@ For this project I subseted the data by the tweets only. I'm planning to continu
 
 2. Second thing to look: **Languages**.  
 Account_Language: 162342 -- English,
-									8125   -- French,
-									1237   -- Russian,
-									185    -- Indonesian,
-									53     -- Turkish,
-									17     -- Romanian. 
+		8125   -- French,
+		1237   -- Russian,
+		185    -- Indonesian,
+		53     -- Turkish,
+		17     -- Romanian. 
 									
 **ADD COUNT PLOTS FROM SEABORN HERE
 
 3. User Reported Location
 
-<img src="/plots/tweets_map.png" alt="drawing" width="500"/>
+<img src="/plots/tweets_map.png" alt="drawing" width="1000" align="right"/>
 Mostly user reported location was **US** across both tweets and retweets, with retweets not coming specifically from any countries from Europe/Asia/Russia. Under **worldwide** category were aggregated reported locations that had more than one location listed in their profile. 
+## User Reported Locations Plots for Tweets and Retweets Users. 
 |![twitter snippet](/images/user_reported_location.png)| ![twitter logo](/images/user_reported_location_retweets.png)|
 |------------------------------------------------------|-------------------------------------------------------------|
 
 **Final Subset**: 
-Final Subset Included the following: 333 Accounts and their Tweet Texts. 
+Final Subset Included **333** Accounts and their Tweet Texts. 
  
  
 ## Text Pipeline and NLP
