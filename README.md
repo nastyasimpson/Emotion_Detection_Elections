@@ -39,28 +39,32 @@ Target variable:  **Natural Language Components of tweets text**, it’s similar
 **59,3287.0** number of **retweets**, 524,243.0 unique retweets, 69,044.00 repeated retweets <br/>
 For this project I subseted the data by the tweets only. I'm planning to continue my research on the Retweet subset as well. <br/>
 2. Second thing to look: **Languages**.  <br/>
-Account_Language: 162342 -- English <br/>
-		  8125   -- French <br/>
-		  1237   -- Russian <br/>
-		  185    -- Indonesian <br/>
-		  53     -- Turkish <br/>
-		  17     -- Romanian <br/>
+Account_Language: <br/>
+	  162342 -- English <br/>
+	  8125   -- French <br/>
+	  1237   -- Russian <br/>
+	  185    -- Indonesian <br/>
+	  53     -- Turkish <br/>
+	  17     -- Romanian <br/>
 									
 **ADD COUNT PLOTS FROM SEABORN HERE
 3. User Reported Location 
-| ![location_tweets](/images/user_reported_location.png)| ![location_retweets](/images/user_reported_location_retweets.png)           | Cool  |<img src=/plots/tweets_map.png width="1000"/>|
+
+| ![tw](/images/user_reported_location.png)| ![ret](/images/user_reported_location_retweets.png)| ![map]| (/plots/tweets_map.png width="1000")|
 |:-------------- |:-------------:| -----:|
-| This should be tweets      | this whould be map | retweets|
+
 
 Mostly user reported location was **US** across both tweets and retweets, with retweets not coming specifically from any countries from Europe/Asia/Russia. Under **worldwide** category were aggregated reported locations that had more than one location listed in their profile. <br/>
-## User Reported Locations Plots for Tweets and Retweets Users. <br/>
+
 
 
 **Final Subset**: 
 Final Subset Included **333** Accounts and their Tweet Texts. <br/>
  
 ## Text Pipeline and NLP
-![pipeline](/images/pipeline_flowchart.png)
+<p align="center"> 
+<img src=/images/pipeline_flowchart.png width="500"/>
+</p>
 
 1.1.Words were lemmatized, stemmed. Punctuation removed. 
 In linguistic morphology and information retrieval in **lemmatization** we are removing word endings to get to our target, the base or dictionary form of a word.  
@@ -74,16 +78,16 @@ cats, catlike, and catty, cat ---> cat
 `stemmer = SnowballStemmer('english')`
 
 1.3. Stop words. Noise. 
-Standard stop words library from nltk was used.
+Standard stop words library from nltk was used. <br/>
 `stop_words = set(nltk.corpus.stopwords.words('english'))`
 
 1.4 In addition the least meaningful words were arbitrary removed by the author using [**google trends**](https://trends.google.com/trends) and human comprehension. 
 
-1.5. Emojies, Urls, Hashtags and Mentions were out of scope of this research and removed from text using [Twitter text preprocessor](https://pypi.org/project/tweet-preprocessor/):
+1.5. Emojies, Urls, Hashtags and Mentions were out of scope of this research and removed from text using [Twitter text preprocessor](https://pypi.org/project/tweet-preprocessor/): </br>
 
 `pip instal tweet-preprocessor`
 
-## Emotion Detector
+## Emotion Detector [Emototions Wheel](images/pipeline_flowchart.png width="500")
 # INSERT PIC HERE
 
 Most schools of thought can confirm: Emotion is often the driving force behind motivation, positive or negative as well as the ability of words represent emotional experience[1]. Undestanding that motivation can be 
