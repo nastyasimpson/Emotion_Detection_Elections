@@ -32,43 +32,34 @@
 Python Regual expressions library, twitter text preprocessor <br/>
 `Vader` - Twitter Sentiment <br/>
  
-## Data EDA:
+Target variable:  **Natural Language Components of tweets text**, it’s similarity and emotion weight of tweets. With this in mind I started with looking into the texts tweets. <br/>
 
-Target variable:  **Natural Language Components of tweets text**, it’s similarity and emotion weight of tweets. With this in mind I started with looking into the texts tweets. 
-
-1. First Thing: Tweets or Retweets? 
-**171,959.0** number of **tweets** 143,308.0 unique tweets , 28,651.0 repeated tweets
-**59,3287.0** number of **retweets**, 524,243.0 unique retweets, 69,044.00 repeated retweets
-For this project I subseted the data by the tweets only. I'm planning to continue my research on the Retweet subset as well. 
-
-2. Second thing to look: **Languages**.  
-Account_Language: 162342 -- English,
-		8125   -- French,
-		1237   -- Russian,
-		185    -- Indonesian,
-		53     -- Turkish,
-		17     -- Romanian. 
+1. First Thing: Tweets or Retweets? <br/>
+**171,959.0** number of **tweets** 143,308.0 unique tweets , 28,651.0 repeated tweets <br/>
+**59,3287.0** number of **retweets**, 524,243.0 unique retweets, 69,044.00 repeated retweets <br/>
+For this project I subseted the data by the tweets only. I'm planning to continue my research on the Retweet subset as well. <br/>
+2. Second thing to look: **Languages**.  <br/>
+Account_Language: 162342 -- English <br/>
+		  8125   -- French <br/>
+		  1237   -- Russian <br/>
+		  185    -- Indonesian <br/>
+		  53     -- Turkish <br/>
+		  17     -- Romanian <br/>
 									
 **ADD COUNT PLOTS FROM SEABORN HERE
-
-
 3. User Reported Location 
-<p align="right">
-<img src=/plots/tweets_map.png width="50"/>
-</p>|
+| ![location_tweets](/images/user_reported_location.png)| ![location_retweets](/images/user_reported_location_retweets.png)           | Cool  |<img src=/plots/tweets_map.png width="1000"/>|
+|:-------------- |:-------------:| -----:|
+| This should be tweets      | this whould be map | retweets|
 
-Mostly user reported location was **US** across both tweets and retweets, with retweets not coming specifically from any countries from Europe/Asia/Russia. Under **worldwide** category were aggregated reported locations that had more than one location listed in their profile. 
-## User Reported Locations Plots for Tweets and Retweets Users. 
+Mostly user reported location was **US** across both tweets and retweets, with retweets not coming specifically from any countries from Europe/Asia/Russia. Under **worldwide** category were aggregated reported locations that had more than one location listed in their profile. <br/>
+## User Reported Locations Plots for Tweets and Retweets Users. <br/>
 
-|![location_tweets](/images/user_reported_location.png)| ![location_retweets](/images/user_reported_location_retweets.png)|
-|------------------------------------------------------|-------------------------------------------------------------|
 
 **Final Subset**: 
-Final Subset Included **333** Accounts and their Tweet Texts. 
- 
+Final Subset Included **333** Accounts and their Tweet Texts. <br/>
  
 ## Text Pipeline and NLP
-
 ![pipeline](/images/pipeline_flowchart.png)
 
 1.1.Words were lemmatized, stemmed. Punctuation removed. 
