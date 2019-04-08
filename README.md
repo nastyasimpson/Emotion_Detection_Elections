@@ -46,8 +46,9 @@ Target variable:  **Natural Language Components of tweets text**, it’s similar
 **59,3287.0** number of **retweets**, 524,243.0 unique retweets, 69,044.00 repeated retweets <br/>
 The subject are the tweets.
 For this project subject are the tweets only. (_I'm planning to continue my research on the Retweet subset as well_). <br/>
-**2. Languages**.  English was selected as a language of this research given language proportion into consideration. <br/>
-Account_Language: <br/>
+**2. Languages**.  English was selected as a language of this research given language proportion into consideration. Final English Only Subset of tweets had 333 accounts<br/>
+Account_Language: <br/> 
+
 	  162342 -- English <br/>
 	  8125   -- French <br/>
 	  1237   -- Russian <br/>
@@ -73,7 +74,6 @@ Clean Up Cities/Countries `loc_clean.py` in `src`
 </p>
 
 
- 
 ## Text Pipeline and NLP
 <p align="center"> 
 <img src=/images/pipeline_flowchart.png width="500"/>
@@ -94,17 +94,12 @@ cats, catlike, and catty, cat ---> cat <br/>
 Standard stop words library from nltk was used. <br/>
 `stop_words = set(nltk.corpus.stopwords.words('english'))` <br/>
 
-
 1.4 In addition the least meaningful words were arbitrary removed by the author using [**google trends**](https://trends.google.com/trends) and human comprehension. 
 additional stopwords list (_developing_) in add_stop_w.py
 
 1.5. Emojies, Urls, Hashtags and Mentions were out of scope of this research and removed from text using [Twitter text preprocessor](https://pypi.org/project/tweet-preprocessor/): </br>
 `pip instal tweet-preprocessor`
 
-
-<p align="center"> 
-<img src=/plots/word_cloud.png width="888"/>
-</p>
 
 <p align="center"> 
 <img src=/images/em_wheel.png width="888"/>
