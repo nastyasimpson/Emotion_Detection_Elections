@@ -21,6 +21,10 @@
 
 * [Twitter Election Integrity Data Set, Russia](https://about.twitter.com/en_us/values/elections-integrity.html#data) include all public, non deleted Tweets from accounts Twitter believes are connected to state-backed information operations. Tweets deleted by these users prior to their suspension (which are not included in this dataset) comprise less than 1% of their overall activity. <br/> 
 * Dataset consisted of 416 accounts allegedly originated in Russia and their tweet content. 
+**Features.** Blue represents missing values. 
+<p align="center"> 
+<img src=/images/isnull.png width="500"/>
+</p>
 
 ## Libraries and Top Tools Used:
 
@@ -80,17 +84,21 @@ Standard stop words library from nltk was used. <br/>
 
 1.5. Emojies, Urls, Hashtags and Mentions were out of scope of this research and removed from text using [Twitter text preprocessor](https://pypi.org/project/tweet-preprocessor/): </br>
 `pip instal tweet-preprocessor`
-
- ![Emototions Wheel](plots/word_cloud.png )
-
-
-<p align="right"> 
-<img src=/images/em_wheel.png width="200"/>
+<p align="center"> 
+<img src=/plots/word_cloud.png width="300"/>
 </p>
+<p align="right"> 
+<img src=/images/em_wheel.png width="150"/>
+</p>
+
 ## Emotion Detector 
 Most schools of thought can confirm: Emotion is often the driving force behind motivation, positive or negative as well as the ability of words represent emotional experience[1]. 
 
+<p align="left"> 
+<img src=/images/obninsk.png width="50"/>
+</p>
 ### Methodology. 
+
 Basic Emotions: During the 1970s, psychologist Paul Eckman identified six basic emotions that he suggested were universally experienced in all human cultures. The emotions he identified were happiness, sadness, disgust, fear, surprise, and anger. 
 
 **Emotions Detection** is an interesting blend of **Psychology** and **Technology**. As much as sentiment analyses is widely used nowadays, I wanted to have a slightly larger emotional palette rather than classic polarity analysis. 
@@ -111,13 +119,18 @@ Liear Algebra Magic:
 * Quantitatively detecting emotions in social media messages can be instrumental in creating models that can classify emotional patterns of suspected accounts for controlling and managing healthy social conversation and possible ethical implications of trying to influence public opinion.  And therefore this research front should be further developed and improved upon. 
 # Timeseries plots here. 
 
-![twitter snippet](/images/emotion_detection_tweets_total.png)
+![emotion_detection_tweets_total](/images/emotion_detection_tweets_total.png width = "1000")
 
 ## Topic Modeling using LDA 
+Methodology
 [Latent Dirichlet Allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) is a generative statistical model of the joint probability distribution on _X × Y, P ( X , Y )_ that allows sets of observations to be explained by unobserved groups that explain why some parts of the data are similar and what are the similarities, what are the topics, the nodes of our text,  or  the abstract "topics" that occur in a collection of documents allowing us for discovery of _hidden semantic structures in a text body_ which is the goal of this project. <br/>
 
 Particular words will be found in the document more or less frequently: "surf" and "ocean" will appear more often in documents about surfing, "smoked salmon" and "dill" will appear in documents about scandinavian recipes than others, and many common words that will appear equally in all topics. <br/>
 A document typically concerns multiple topics in different proportions; thus, in a document that is 80% about surfing and 20% about scandinavian recipes, there would probably be about 8 times more words acount ocean and surf than about scandinavian recipes. The "topics" produced by topic modeling techniques are clusters of similar words. A topic model captures this intuition in a mathematical framework, which allows examining a set of documents and discovering, based on the statistics of the words in each, what the topics might be and what each document's balance of topics is. 
+
+|![annot](/images/annot_lda.png)| ![lda](/images/lda_plate_notation.png)|
+|----------------------------------------------|------------------------------------------|
+
 
 LDA is an unsupervised technique, meaning that we don’t know prior to running the model how many topics exits in our corpus. Coherence score is a metric and main technique used to estimate the number of topics and to measure human understandability and interpretability.
 
