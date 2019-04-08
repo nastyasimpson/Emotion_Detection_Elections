@@ -50,16 +50,16 @@ Account_Language: <br/>
 **ADD COUNT PLOTS FROM SEABORN HERE
 3. User Reported Location 
 
-| ![tw](/images/user_reported_location.png)| ![ret](/images/user_reported_location_retweets.png)| ![map]| (/plots/tweets_map.png width="1000")|
-|:-------------- |:-------------:| -----:|
 
+
+|![tw](/images/user_reported_location.png)| ![re](/images/user_reported_location_retweets.png)|![map](/plots/tweets_map.png width="1000")|
+|:----:|:----:|:----:|
 
 Mostly user reported location was **US** across both tweets and retweets, with retweets not coming specifically from any countries from Europe/Asia/Russia. Under **worldwide** category were aggregated reported locations that had more than one location listed in their profile. <br/>
 
 
 
-**Final Subset**: 
-Final Subset Included **333** Accounts and their Tweet Texts. <br/>
+**Final Subset** included **333** Accounts and their Tweet Texts. <br/>
  
 ## Text Pipeline and NLP
 <p align="center"> 
@@ -87,10 +87,9 @@ Standard stop words library from nltk was used. <br/>
 
 `pip instal tweet-preprocessor`
 
-## Emotion Detector [Emototions Wheel](images/pipeline_flowchart.png width="500")
-# INSERT PIC HERE
+## Emotion Detector [Emototions Wheel](images/em_wheel.png width="700")
 
-Most schools of thought can confirm: Emotion is often the driving force behind motivation, positive or negative as well as the ability of words represent emotional experience[1]. Undestanding that motivation can be 
+Most schools of thought can confirm: Emotion is often the driving force behind motivation, positive or negative as well as the ability of words represent emotional experience[1]. 
 
 ### Methodology. 
 Basic Emotions: During the 1970s, psychologist Paul Eckman identified six basic emotions that he suggested were universally experienced in all human cultures. The emotions he identified were happiness, sadness, disgust, fear, surprise, and anger. 
@@ -105,7 +104,6 @@ Using NLTK Vectorize Tweets tweet. Vocabulary Hyper Parameter is set of unique w
 `from sklearn.feature_extraction.text import CountVectorizer`
 
 ## Results Discussion:
-
 * Top interest. In tweets emotion detection time series observed **fear increased** in 2014 - 2016 right before the election. It is a very interesting observation which allows us to examine fear patterns available for research during that period of time to see if it’s noise or not and potentially opens up an important feature in decision making classifiers. 
 
 * Quantitatively detecting emotions in social media messages can be instrumental in creating models that can classify emotional patterns of suspected accounts for controlling and managing healthy social conversation and possible ethical implications of trying to influence public opinion.  And therefore this research front should be further developed and improved upon. 
