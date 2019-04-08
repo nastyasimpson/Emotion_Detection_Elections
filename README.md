@@ -128,14 +128,31 @@ Linear Algebra Magic:
 <img src=/images/linalg.png width="243">
 </p>
 
+## RESULTS
+
+### Emotion Detection Words Frequencies Timeseries.
+
+<p align="center">
+<img src=/plots/monthly_tweet_volume.png width="1114">
+</p>
+
+### Normalized Emotion Detection Words Frequencies Timeseries. 
+<p align="center">
+<img src=/plots/norm_monthly_tweet_volume.png width="1114">
+</p>
+
+### Monthly Tweets Activity.  
+<p align="center">
+<img src=/plots/tweet_volume.png width="1114">
+</p>
+
+
 
 ## Results Discussion:
 * Top interest. In tweets emotion detection time series observed **fear increased** in 2014 - 2016 right before the election. It is a very interesting observation which allows us to examine fear patterns available for research during that period of time to see if it’s noise or not and potentially opens up an important feature in decision making classifiers. 
 
 * Quantitatively detecting emotions in social media messages can be instrumental in creating models that can classify emotional patterns of suspected accounts for controlling and managing healthy social conversation and possible ethical implications of trying to influence public opinion.  And therefore this research front should be further developed and improved upon. 
-# Timeseries plots here. 
 
-![emotion_detection_tweets_total](/images/emotion_detection_tweets_total.png width = "1000")
 
 ## Topic Modeling using LDA 
 Methodology
