@@ -1,9 +1,12 @@
 import pandas as pd
 import numpy as np
 
-def read_data(path):
+def read_data(path, kind = 'tweets', aggregated_by = None):
     '''
-    INPUT: path to .cvs datafile, default = Tweets, Retweets otherwise
+    INPUT: path to .cvs datafile, 
+        PArameters: default kind is 'tweets', specify 'retweets' otherwise.
+        aggregated_by is None by default, specify 'users' if need to get a dataset
+        that is grouped by user
     OUTPUT: 1. Tweets Pandas Dataframe object
             WITH :
             Only columns selected for the project,
@@ -48,19 +51,40 @@ def read_data(path):
     tweets_english = tweets[ tweets['account_language'] == 'en']
     retweets_english = tweets[ tweets['account_language'] == 'en']
 
-    #2 Making Users_tweets_series
+    #2 Making Users_tweets_series and User Tweet Subset by grouping by by ['userid]
 
     # Grouping by tweets by users
     users_tweets_series = tweets_english.groupby(['userid']).apply(lambda x:" ".join(x.tweet_text))
     users_retweets_series = retweets_english.groupby(['userid']).apply(lambda x:" ".join(x.tweet_text))
+    
     # Creating new dataset 
     users_tweets = pd.DataFrame( users_tweets_series ).reset_index()
     users_retweets = pd.DataFrame( users_retweets_series ).reset_index()
+    
     # Formatting columns
     users_tweets.columns = ['userid', 'tweet_text']
     users_retweets.columns = ['userid', 'tweet_text']
+    if kind == 'tweets':
+        if aggregated_by == None:
+            return tweets_english
+        else:
+            return users_tweets
+    if kind == 'retweets':
+        if aggregated_by == None:  
+            return retweets_english
+        else: 
+            return users_tweets    
 
+
+#########################################
+##### Sugested Flow ####################
+if __name__ == "__main__": 
+    data = 'data/russia_201901_1_tweets_csv_hashed.csv'
+    print('Read Data:')
+    users_df = read_data(data, kind = 'tweets', aggregated_by = 'users')
+    print(users_df.head(5))
     
-    return tweets_english, users_tweets
     
-#     return retweets_english, users_retweets
+    
+        
+
