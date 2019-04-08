@@ -38,7 +38,8 @@
 Python Regual expressions library, twitter text preprocessor <br/>
 `Vader` - Twitter Sentiment <br/>
  
-Target variable:  **Natural Language Components of tweets text**, it’s similarity and emotion weight of tweets. With this in mind I started with looking into the texts tweets. <br/>
+## Target variable:
+**Natural Language Components of tweets text**, it’s similarity and emotion weight of tweets. With this in mind I started with looking into the texts tweets. <br/>
 
 **1. First Thing: Tweets or Retweets?** <br/>
 
@@ -95,7 +96,7 @@ Standard stop words library from nltk was used. <br/>
 `stop_words = set(nltk.corpus.stopwords.words('english'))` <br/>
 
 1.4 In addition the least meaningful words were arbitrary removed by the author using [**google trends**](https://trends.google.com/trends) and human comprehension. 
-additional stopwords list (_developing_) in add_stop_w.py
+additional stopwords list (_developing_) in add_stop_words.py
 
 1.5. Emojies, Urls, Hashtags and Mentions were out of scope of this research and removed from text using [Twitter text preprocessor](https://pypi.org/project/tweet-preprocessor/): </br>
 `pip instal tweet-preprocessor`
@@ -124,10 +125,13 @@ Basic Emotions: During the 1970s, psychologist Paul Eckman identified six basic 
 ### Disgust, Surprise, Neutral, Anger, Sad, Happy and Fear. 
 By the authors of the dataset words have been manually and automatically labeled using _Andbrain_(published on Kaggle) engine from over 1.185.540 classified words, blogs, tweets and sentences. 
 
+### The Code 
+`src` </br>
+`emotion_detector.py`
 Using NLTK Vectorize tweets corpus over vocabulary (hyper-parameter of CountVectorizer)that is set of unique words with calculated emotions weight per word. 
 `from sklearn.feature_extraction.text import CountVectorizer`
-Comparing index and columns of two dataframse to make sure they are identical. But it is nice to check! 
-Linear Algebra Magic:
+Comparing index and columns of two dataframes to make sure they are identical. But it is nice to check! 
+Linear Algebra Magic :heart::
 <p align="left"> 
 <img src=/images/linalg.png width="243">
 </p>
@@ -140,17 +144,18 @@ Linear Algebra Magic:
 
 
 ## Results Discussion:
+
 * Top interest. In tweets emotion detection time series observed **fear increased** in 2014 - 2016 right before the election. It is a very interesting observation which allows us to examine fear patterns available for research during that period of time to see if it’s noise or not and potentially opens up an important feature in decision making classifiers. 
 
 * Quantitatively detecting emotions in social media messages can be instrumental in creating models that can classify emotional patterns of suspected accounts for controlling and managing healthy social conversation and possible ethical implications of trying to influence public opinion.  And therefore this research front should be further developed and improved upon. 
 
 
-## Topic Modeling using LDA 
+## Topic Modeling using LDA[2] 
 Methodology
 [Latent Dirichlet Allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) is a generative statistical model of the joint probability distribution on _X × Y, P ( X , Y )_ that allows sets of observations to be explained by unobserved groups that explain why some parts of the data are similar and what are the similarities, what are the topics, the nodes of our text,  or  the abstract "topics" that occur in a collection of documents allowing us for discovery of _hidden semantic structures in a text body_ which is the goal of this project. <br/>
 
-Particular words will be found in the document more or less frequently: "surf" and "ocean" will appear more often in documents about surfing, "smoked salmon" and "dill" will appear in documents about scandinavian recipes than others, and many common words that will appear equally in all topics. <br/>
-A document typically concerns multiple topics in different proportions; thus, in a document that is 80% about surfing and 20% about scandinavian recipes, there would probably be about 8 times more words acount ocean and surf than about scandinavian recipes. The "topics" produced by topic modeling techniques are clusters of similar words. A topic model captures this intuition in a mathematical framework, which allows examining a set of documents and discovering, based on the statistics of the words in each, what the topics might be and what each document's balance of topics is. 
+Particular words will be found in the document more or less frequently: "surf" and "ocean" will appear more often in documents about surfing, "smoked salmon" and "dill" will appear in documents about Scandinavian recipes than others, and many common words that will appear equally in all topics. <br/>
+A document typically concerns multiple topics in different proportions; thus, in a document that is 80% about surfing and 20% about Scandinavian recipes, there would probably be about 8 times more words acount ocean and surf than about Scandinavian recipes. The "topics" produced by topic modeling techniques are clusters of similar words. A topic model captures this intuition in a mathematical framework, which allows examining a set of documents and discovering, based on the statistics of the words in each, what the topics might be and what each document's balance of topics is. 
 
 |![annot](/images/annot_lda.png)| ![lda](/images/lda_plate_notation.png)|
 |----------------------------------------------|------------------------------------------|
@@ -204,4 +209,4 @@ Inspired by the findings of this eda to continue searching for latent features a
 [**My LinkedIn**](https://www.linkedin.com/in/anastasia-simpson-61402629/) 
 ## References
 1.  Gaulin, Steven J.C. and Donald H. McBurney. Evolutionary Psychology. Prentice Hall. 2003. ISBN 978-0-13-111529-3, Chapter 6, p 121-142.
-2. 
+2. D. M. Blei, A. Y. Ng, and M. I. Jordan. Latent Dirichlet allocation. Journal of Machine Learning Research, 3:993–1022, 2003
