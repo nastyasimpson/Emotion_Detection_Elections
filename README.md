@@ -100,6 +100,10 @@ additional stopwords list (_developing_) in add_stop_w.py
 1.5. Emojies, Urls, Hashtags and Mentions were out of scope of this research and removed from text using [Twitter text preprocessor](https://pypi.org/project/tweet-preprocessor/): </br>
 `pip instal tweet-preprocessor`
 
+## BAG OF WORDS
+<p align="center"> 
+<img src=/plots/bow_cloud.png width="888"/>
+</p>
 
 <p align="center"> 
 <img src=/images/em_wheel.png width="888"/>
