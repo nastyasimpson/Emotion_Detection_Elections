@@ -102,6 +102,9 @@ Basic Emotions: During the 1970s, psychologist Paul Eckman identified six basic 
 Words have been manually and automatically labeled using _Andbrain_(published on Kaggle) engine from over 1.185.540 classified words, blogs, tweets and sentences. 
 Using NLTK Vectorize Tweets tweet. Vocabulary Hyper Parameter is set of unique words with calculated emotions weight per word. 
 `from sklearn.feature_extraction.text import CountVectorizer`
+Comparing index and columns of two dataframse to make sure they are identical. 
+Liear Algebra Magic:
+[Emototions Wheel](images/linalg.png width="1000")
 
 ## Results Discussion:
 * Top interest. In tweets emotion detection time series observed **fear increased** in 2014 - 2016 right before the election. It is a very interesting observation which allows us to examine fear patterns available for research during that period of time to see if it’s noise or not and potentially opens up an important feature in decision making classifiers. 
@@ -117,13 +120,37 @@ Using NLTK Vectorize Tweets tweet. Vocabulary Hyper Parameter is set of unique w
 Particular words will be found in the document more or less frequently: "surf" and "ocean" will appear more often in documents about surfing, "smoked salmon" and "dill" will appear in documents about scandinavian recipes than others, and many common words that will appear equally in all topics. <br/>
 A document typically concerns multiple topics in different proportions; thus, in a document that is 80% about surfing and 20% about scandinavian recipes, there would probably be about 8 times more words acount ocean and surf than about scandinavian recipes. The "topics" produced by topic modeling techniques are clusters of similar words. A topic model captures this intuition in a mathematical framework, which allows examining a set of documents and discovering, based on the statistics of the words in each, what the topics might be and what each document's balance of topics is. 
 
+## RESULTS
+Topics Model Can be seen following this link: LINK        
+
+WE can see these main Clusters: 
+NAME CLUSTERS!!!
+Agression. Race. Terror. Disgust. Etc Word CLound
+Scandals. Politics. Ashley MAdison. Topless. Donald. And other -- make a cloud
+America Hate Shumer
+
+
+The first Three topics are of primery interest since they are talking about American politics which is interesting find and can be considered as a feature. 
+
+Zimbabwe. WIll try to detect non english words. 
+European tennis. Sports. 
+Sirya
+Turkish, azeri.
+
+
+## Future Steps: 
+
+* Network and Graph analysis can be applied to further determine connections between accounts and their social weights in the public conversation. 
+* I wanted to investigate further where the tweets were originated from geographically: During next election create a classifier model based on this dataset to label based on previous trends and most interesting features developed based on LDA Model topics clusters.
+* AI-powered keyword equipped text screener. 
+* Creating a AI Tool for Emotion Analysis and Understanding.
+ 
+
+
 ## Conclusions
+Inspired by the findings of this eda to continue searching for latent features available to be discovered using modern machine learning techniques and tools.
 ## Acknowledgements
+## About me 
 ## References
-
-
-### 391204 (re)tweets were published by users with more than **5000** followers
-### 306406 (re)tweets were published by users with **1000-5000** followers
-### 67636  (re)tweets were published by users with less than **1000** followers
 1.  Gaulin, Steven J.C. and Donald H. McBurney. Evolutionary Psychology. Prentice Hall. 2003. ISBN 978-0-13-111529-3, Chapter 6, p 121-142.
 2. 
