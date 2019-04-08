@@ -131,7 +131,7 @@ Linear Algebra Magic:
 ## RESULTS
 
 <p align="center"> 
-<img src=/images/timeseries.png width="1114">
+<img src=/plots/timeseries.png width="1114">
 </p>
 
 
