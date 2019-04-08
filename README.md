@@ -50,16 +50,16 @@ Account_Language: <br/>
 **ADD COUNT PLOTS FROM SEABORN HERE
 3. User Reported Location 
 
-| ![tw](/images/user_reported_location.png)| ![ret](/images/user_reported_location_retweets.png)| ![map]| (/plots/tweets_map.png width="1000")|
-|:-------------- |:-------------:| -----:|
 
+
+|![tw](/images/user_reported_location.png)| ![re](/images/user_reported_location_retweets.png)|![map](/plots/tweets_map.png width="1000")|
+|:----:|:----:|:----:|
 
 Mostly user reported location was **US** across both tweets and retweets, with retweets not coming specifically from any countries from Europe/Asia/Russia. Under **worldwide** category were aggregated reported locations that had more than one location listed in their profile. <br/>
 
 
 
-**Final Subset**: 
-Final Subset Included **333** Accounts and their Tweet Texts. <br/>
+**Final Subset** included **333** Accounts and their Tweet Texts. <br/>
  
 ## Text Pipeline and NLP
 <p align="center"> 
@@ -86,11 +86,14 @@ Standard stop words library from nltk was used. <br/>
 1.5. Emojies, Urls, Hashtags and Mentions were out of scope of this research and removed from text using [Twitter text preprocessor](https://pypi.org/project/tweet-preprocessor/): </br>
 
 `pip instal tweet-preprocessor`
+ ![Emototions Wheel](plots/word_cloud.png )
 
-## Emotion Detector [Emototions Wheel](images/pipeline_flowchart.png width="500")
-# INSERT PIC HERE
+## Emotion Detector 
+<p align="right"> 
+<img src=/images/em_wheel.png width="300"/>
+</p>
+Most schools of thought can confirm: Emotion is often the driving force behind motivation, positive or negative as well as the ability of words represent emotional experience[1]. 
 
-Most schools of thought can confirm: Emotion is often the driving force behind motivation, positive or negative as well as the ability of words represent emotional experience[1]. Undestanding that motivation can be 
 
 ### Methodology. 
 Basic Emotions: During the 1970s, psychologist Paul Eckman identified six basic emotions that he suggested were universally experienced in all human cultures. The emotions he identified were happiness, sadness, disgust, fear, surprise, and anger. 
@@ -103,9 +106,11 @@ Basic Emotions: During the 1970s, psychologist Paul Eckman identified six basic 
 Words have been manually and automatically labeled using _Andbrain_(published on Kaggle) engine from over 1.185.540 classified words, blogs, tweets and sentences. 
 Using NLTK Vectorize Tweets tweet. Vocabulary Hyper Parameter is set of unique words with calculated emotions weight per word. 
 `from sklearn.feature_extraction.text import CountVectorizer`
+Comparing index and columns of two dataframse to make sure they are identical. 
+Liear Algebra Magic:
+[linalg](images/linalg.png width="1000")
 
 ## Results Discussion:
-
 * Top interest. In tweets emotion detection time series observed **fear increased** in 2014 - 2016 right before the election. It is a very interesting observation which allows us to examine fear patterns available for research during that period of time to see if it’s noise or not and potentially opens up an important feature in decision making classifiers. 
 
 * Quantitatively detecting emotions in social media messages can be instrumental in creating models that can classify emotional patterns of suspected accounts for controlling and managing healthy social conversation and possible ethical implications of trying to influence public opinion.  And therefore this research front should be further developed and improved upon. 
@@ -119,13 +124,45 @@ Using NLTK Vectorize Tweets tweet. Vocabulary Hyper Parameter is set of unique w
 Particular words will be found in the document more or less frequently: "surf" and "ocean" will appear more often in documents about surfing, "smoked salmon" and "dill" will appear in documents about scandinavian recipes than others, and many common words that will appear equally in all topics. <br/>
 A document typically concerns multiple topics in different proportions; thus, in a document that is 80% about surfing and 20% about scandinavian recipes, there would probably be about 8 times more words acount ocean and surf than about scandinavian recipes. The "topics" produced by topic modeling techniques are clusters of similar words. A topic model captures this intuition in a mathematical framework, which allows examining a set of documents and discovering, based on the statistics of the words in each, what the topics might be and what each document's balance of topics is. 
 
+LDA is an unsupervised technique, meaning that we don’t know prior to running the model how many topics exits in our corpus. Coherence score is a metric and main technique used to estimate the number of topics and to measure human understandability and interpretability.
+
+## Model Evaluation. Coherence Score.  
+A set of statements or facts is said to be coherent, if they support each other.
+Interest into coherence measures has arisen in text mining, as unsupervised learning methods like topic models give no guarantees on the interpretability of their output. Topic models learn topics—typically represented as sets of important words—automatically from unlabeled documents in an unsupervised way. This is an attractive method to bring structure to otherwise unstructured text data. 
+
+## ADD math on coherence score. 
+`from gensim import code models.coherencemodel `
+‘U_mass’
+![Coherence](plots/coherence_scores.png)
+
+## RESULTS
+Topics Model Can be seen following this link: **html link to oprn pyLDAvis: LINK        
+By Examining the clusters we can identify and suggest the latent groups discovered: We can see these main Clusters: 
+
+1. Agression. Race. Terror. Disgust. <br/> 
+2. Scandals. Politics. Ashley Madison. Topless. Donald. <br/> And other -- make a cloud
+3. America Hate Shumer <br/>
+The first 3 topics are of primery interest since they are talking about American politics which is interesting find and can be considered as a feature. 
+
+4. Zimbabwe. <br/> WIll try to detect non english words. 
+5. European tennis. Sports. <br/>
+6. Sirya <br/>
+7. Turkish, azeri. <br/>
+
+
+## Future Steps: 
+
+* Network and Graph analysis can be applied to further determine connections between accounts and their social weights in the public conversation. 
+* I wanted to investigate further where the tweets were originated from geographically: During next election create a classifier model based on this dataset to label based on previous trends and most interesting features developed based on LDA Model topics clusters.
+* AI-powered keyword equipped text screener. 
+* Creating a AI Tool for Emotion Analysis and Understanding.
+ 
+
+
 ## Conclusions
+Inspired by the findings of this eda to continue searching for latent features available to be discovered using modern machine learning techniques and tools.
 ## Acknowledgements
+## About me 
 ## References
-
-
-### 391204 (re)tweets were published by users with more than **5000** followers
-### 306406 (re)tweets were published by users with **1000-5000** followers
-### 67636  (re)tweets were published by users with less than **1000** followers
 1.  Gaulin, Steven J.C. and Donald H. McBurney. Evolutionary Psychology. Prentice Hall. 2003. ISBN 978-0-13-111529-3, Chapter 6, p 121-142.
 2. 
