@@ -1,7 +1,11 @@
+from clean_read_data import read_data 
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pprint import pprint
+
+import os
 
 ## Imports for Tweet Text Cleaning Pipeline
 import preprocessor as p
@@ -29,55 +33,7 @@ warnings.filterwarnings("ignore",category=DeprecationWarning)
 #####DATA CLEANING AND HANDLING#####################
 ####################################################
 
-def read_data(path):
-    '''
-    INPUT: path to .cvs datafile, default = Tweets, Retweets otherwise
-    OUTPUT: 1. Tweets Pandas Dataframe object
-            WITH :
-            Only columns selected for the project,
-            Time subset: 2014 - 2019
-            Only tweets (columns is_retweet = False)
-            Only tweets with account_language = en
-
-            2. User Tweets Pandas Dataframe object
-            WITH  2 columns user_id and tweet text. 
-            Tweet text is grouped by users
-            
-    '''
-    data = pd.read_csv(path)
-    # columns subset
-    data = data[['tweetid', 'userid', 'user_display_name', 'user_screen_name',
-                'user_reported_location', 'user_profile_description',
-                'user_profile_url', 'follower_count', 'following_count',
-                'account_creation_date', 'account_language', 'tweet_text', 
-                'tweet_time', 'is_retweet']]
-    # time subset
-    data['tweet_time'] = pd.to_datetime(data['tweet_time'])
-    start_date = '2014-01-01'
-    end_date = '2018-11-06'
-    mask = (data['tweet_time'] > start_date) & (data['tweet_time'] <= end_date)
-    data_prime = data.loc[mask]
-    # tweets subset
-    tweets_mask = data_prime['is_retweet'] == False
-    tweets = data_prime[tweets_mask]
-    # retweets subset 
-    retweets_mask = data_prime['is_retweet'] == True
-    tweets = data_prime[retweets_mask]
-    # English only. Additional cleaning will be performed in tweet_text_cleanining.py
-    tweets_english = tweets[ tweets['account_language'] == 'en']
-    retweets_english = tweets[ tweets['account_language'] == 'en']
-    #2 Making Users_tweets_series
-    # Grouping by tweets by users
-    users_tweets_series = tweets_english.groupby(['userid']).apply(lambda x:" ".join(x.tweet_text))
-    users_retweets_series = retweets_english.groupby(['userid']).apply(lambda x:" ".join(x.tweet_text))
-    # Creating new dataset 
-    users_tweets = pd.DataFrame( users_tweets_series ).reset_index()
-    users_retweets = pd.DataFrame( users_retweets_series ).reset_index()
-    # Formatting columns
-    users_tweets.columns = ['userid', 'tweet_text']
-    users_retweets.columns = ['userid', 'tweet_text']
-   
-    return users_tweets    
+    
    
 
 ############################################################
@@ -155,14 +111,19 @@ def compute_coherence_values(dictionary, corpus, texts, limit = 10, start=2, ste
     return model_list, coherence_values
 
 
-def plot_coherent_scores(limit =30, start = 1, step = 1, sv = False ):
-    
+def plot_coherent_scores(bow, limit =30, start = 1, step = 1, sv = False ):
+    id2word = corpora.Dictionary(bow)
+    # Create Corpus
+    texts = bow
+    # Term Document Frequency
+    corpus = [id2word.doc2bow(text) for text in texts]  
+
     x = range(start, limit, step)
 
     plt.figure(figsize=(10,4))
 
     sns.set_style("darkgrid")
-    coherence_values = compute_coherence_values(dictionary, corpus, texts, limit, start=2, step=3)[1]
+    coherence_values = compute_coherence_values(id2word, corpus, texts, limit, start=2, step=3)[1]
     plt.plot(x, coherence_values, c = 'limegreen')
     plt.xlabel("Num Topics", fontsize = 16)
     plt.ylabel("Coherence score", fontsize = 16)
@@ -211,8 +172,20 @@ def clean_tweet_text(text_column):
     words <3 chars removed
     '''
     punct = set(string.punctuation)
+
     punct.remove('@')
     punct.remove('#')
+    punct.add('🇺🇸')
+    punct.add('🇯🇵')
+    punct.add('🇰🇷')
+    punct.add('🇩🇪')
+    punct.add('🇨🇳')
+    punct.add('🇫🇷')
+    punct.add('🇪🇸')
+    punct.add('🇮🇹')
+    punct.add('🇷🇺')
+    punct.add('🇬🇧')
+    punct.add('🤗')
     
     ### English stop words from NLTK   
     stop_words = set(nltk.corpus.stopwords.words('english')) 
@@ -275,6 +248,8 @@ def preprocessing_text(text):
     INPUT: str
     OUTPUT: str w/ emojies, urls, hashtags and mentions removed
     '''
+    import preprocessor as p
+
     p.set_options(p.OPT.EMOJI, p.OPT.URL, p.OPT.HASHTAG, p.OPT.MENTION, p.OPT.NUMBER,
     p.OPT.RESERVED, p.OPT.SMILEY)
     clean_text = p.clean(text)
@@ -295,9 +270,12 @@ def remove_symbols(word, symbol_set):
 ##### Main function with lots of commented out code for workflow:#####
 ######################################################################
 if __name__ == "__main__": 
-    data = 'data/russia_201901_1_tweets_csv_hashed.csv'
+    CURRENT_DIR = os.path.dirname('~/galvanize/Emotion_Detection_Elections/data')
+    file_path = os.path.join(CURRENT_DIR, 'data/russia_201901_1_tweets_csv_hashed.csv')
     print('Read Data:')
-    users_df = read_data(data)
+    users_df = read_data(file_path, kind = 'tweets', aggregated_by = 'users')
+    print(users_df.head(5))
+    
     print('Cleaned Data: ')
     text_column = users_df['tweet_text']
     print('Ready to Clean the Tweets!')
@@ -305,4 +283,10 @@ if __name__ == "__main__":
     print('The Tweets are Clean: ')
     print('Model is ready! \nBelow you can see 7 topics and most frequent keywords: ')
     lda_model(bow)
+    plot_word_cloud(cleaned_docs, sv = False)
+    print('Coherence Score Metric to decide on optimal number of topics: ')
+    plot_coherent_scores(bow, limit =30, start = 1, step = 1, sv = False )
+
+    
+
     
