@@ -88,8 +88,10 @@ Standard stop words library from nltk was used. <br/>
 `pip instal tweet-preprocessor`
  ![Emototions Wheel](plots/word_cloud.png )
 
-## Emotion Detector ![Emototions Wheel](images/em_wheel.png)
-
+## Emotion Detector 
+<p align="right"> 
+<img src=/images/em_wheel.png width="300"/>
+</p>
 Most schools of thought can confirm: Emotion is often the driving force behind motivation, positive or negative as well as the ability of words represent emotional experience[1]. 
 
 
