@@ -46,7 +46,7 @@ Target variable:  **Natural Language Components of tweets text**, it’s similar
 **59,3287.0** number of **retweets**, 524,243.0 unique retweets, 69,044.00 repeated retweets <br/>
 The subject are the tweets.
 For this project subject are the tweets only. (_I'm planning to continue my research on the Retweet subset as well_). <br/>
-**2. Second: Languages**.  <br/>
+**2. Languages**.  English was selected as a language of this research given language proportion into consideration. <br/>
 Account_Language: <br/>
 	  162342 -- English <br/>
 	  8125   -- French <br/>
@@ -54,13 +54,13 @@ Account_Language: <br/>
 	  185    -- Indonesian <br/>
 	  53     -- Turkish <br/>
 	  17     -- Romanian <br/>
-									
-**ADD COUNT PLOTS FROM SEABORN HERE
+					
+**ADD SEABORN COUNT PLOTS HERE
 
-3. User Reported Location 
+**3. User Reported Location** 
 Tweets Volume per Location.
-`loc_df.groupby('user_reported_location').count()['userid']` _pandas command to count users per location
-`clean_user_reportd_location(loc_df)` _cleaning and aggregating locations function in `src` folder. 
+`loc_df.groupby('user_reported_location').count()['userid']` _pandas command to count users per location_
+`clean_user_reportd_location(loc_df)` _cleaning and aggregating locations function in `src` folder_. 
 I wrote a funciton to convert user reported locations to latitude-longitude of the city. Because I love geography I handcoded the latitudes and longitudes from the cities I needed. I used geopandas and matplotlib for the map plot. Below, The Volume of the tweets from each location. 
 
 `import descartes` <br/>  
@@ -72,7 +72,7 @@ Clean Up Cities/Countries `loc_clean.py` in `src`
 <img src=/plots/user_location.png width="1114"/>
 </p>
 
-**Final Subset** included **333** Accounts and their Tweet Texts. <br/>
+
  
 ## Text Pipeline and NLP
 <p align="center"> 
@@ -103,11 +103,11 @@ additional stopwords list (_developing_) in add_stop_w.py
 
 
 <p align="center"> 
-<img src=/plots/wordcloud.png width="1114"/>
+<img src=/plots/word_cloud.png width="888"/>
 </p>
 
 <p align="center"> 
-<img src=/images/em_wheel.png width="243"/>
+<img src=/images/em_wheel.png width="888"/>
 </p>
 
 
@@ -123,12 +123,16 @@ Basic Emotions: During the 1970s, psychologist Paul Eckman identified six basic 
 **Tool Kit**
 [Emotions Sensor Data Set available on Kaggle](https://www.kaggle.com/iwilldoit/emotions-sensor-data-set). Data set contains over 21000 unique English words classified statistically into of 7 basic emotions: 
 ### Disgust, Surprise, Neutral, Anger, Sad, Happy and Fear. 
-Words have been manually and automatically labeled using _Andbrain_(published on Kaggle) engine from over 1.185.540 classified words, blogs, tweets and sentences. 
-Using NLTK Vectorize Tweets tweet. Vocabulary Hyper Parameter is set of unique words with calculated emotions weight per word. 
+By the authors of the dataset words have been manually and automatically labeled using _Andbrain_(published on Kaggle) engine from over 1.185.540 classified words, blogs, tweets and sentences. 
+
+Using NLTK Vectorize tweets corpus over vocabulary (hyper-parameter of CountVectorizer)that is set of unique words with calculated emotions weight per word. 
 `from sklearn.feature_extraction.text import CountVectorizer`
-Comparing index and columns of two dataframse to make sure they are identical. 
-Liear Algebra Magic:
-[linalg](images/linalg.png width="1000")
+Comparing index and columns of two dataframse to make sure they are identical. But it is nice to check! 
+Linear Algebra Magic:
+<p align="left"> 
+<img src=/images/linalg.png width="243">
+</p>
+
 
 ## Results Discussion:
 * Top interest. In tweets emotion detection time series observed **fear increased** in 2014 - 2016 right before the election. It is a very interesting observation which allows us to examine fear patterns available for research during that period of time to see if it’s noise or not and potentially opens up an important feature in decision making classifiers. 
@@ -149,15 +153,17 @@ A document typically concerns multiple topics in different proportions; thus, in
 |----------------------------------------------|------------------------------------------|
 
 
-LDA is an unsupervised technique, meaning that we don’t know prior to running the model how many topics exits in our corpus. Coherence score is a metric and main technique used to estimate the number of topics and to measure human understandability and interpretability.
+**LDA is an unsupervised technique**, meaning that we don’t know prior to running the model **how many topics** exits in our corpus. **Coherence score** is a metric and main technique used to estimate the number of topics and to measure human understandability and interpretability.
 
-## Model Evaluation. Coherence Score.  
+## Model Evaluation. Coherence Score. 
+
 A set of statements or facts is said to be coherent, if they support each other.
-Interest into coherence measures has arisen in text mining, as unsupervised learning methods like topic models give no guarantees on the interpretability of their output. Topic models learn topics—typically represented as sets of important words—automatically from unlabeled documents in an unsupervised way. This is an attractive method to bring structure to otherwise unstructured text data. 
+Interest into coherence measures has arisen in text mining, as unsupervised learning methods like topic models give no guarantees on the interpretability of their output. Topic models learn topics—typically represented as sets of important words—automatically from unlabeled documents in an unsupervised way. This is an attractive method to bring structure to otherwise unstructured text data. [needs reference]
 
-## ADD math on coherence score. 
-`from gensim import code models.coherencemodel `
-‘U_mass’
+## ADD math on coherence score. <br/> 
+`from gensim import code models.coherencemodel `  Calculation and gensim Hypeparameter ‘U_mass’ <br/> 
+ <br/>
+ Math (link)
 ![Coherence](plots/coherence_scores.png)
 
 ## RESULTS
@@ -177,6 +183,7 @@ The first 3 topics are of primery interest since they are talking about American
 
 ## Future Steps: 
 
+* Topic distribution across documents. Find the most representative documents for each topic 
 * Network and Graph analysis can be applied to further determine connections between accounts and their social weights in the public conversation. 
 * I wanted to investigate further where the tweets were originated from geographically: During next election create a classifier model based on this dataset to label based on previous trends and most interesting features developed based on LDA Model topics clusters.
 * AI-powered keyword equipped text screener. 
@@ -185,9 +192,13 @@ The first 3 topics are of primery interest since they are talking about American
 
 
 ## Conclusions
+
 Inspired by the findings of this eda to continue searching for latent features available to be discovered using modern machine learning techniques and tools.
 ## Acknowledgements
+
 ## About me 
+
+[**My LinkedIn**](https://www.linkedin.com/in/anastasia-simpson-61402629/) 
 ## References
 1.  Gaulin, Steven J.C. and Donald H. McBurney. Evolutionary Psychology. Prentice Hall. 2003. ISBN 978-0-13-111529-3, Chapter 6, p 121-142.
 2. 
