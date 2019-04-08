@@ -4,7 +4,8 @@
 |![twitter snippet](/images/twittersnippet.png)| ![twitter logo](/images/logo_twitter.png)|
 |----------------------------------------------|------------------------------------------|
 
-## Table of Contents --- make it a list of links at the end when everythong is ready ---
+
+
 
 ## Introduction and Project Goals
   Creating healthy public conversation through data analysis and thorough __text analysis__ of suspended Twitter accounts originated from Russia using **Twitter's Elections Integrity Dataset** that was published in January 2019. <br />
@@ -23,7 +24,7 @@
 * Dataset consisted of 416 accounts allegedly originated in Russia and their tweet content. <br/>
 
 #### Data Set Features and Null Values (blue). ####
-<p align="center"> 
+<p align="left"> 
 <img src=/images/isnull.png width="500"/>
 </p>
 
@@ -45,7 +46,7 @@ Target variable:  **Natural Language Components of tweets text**, it’s similar
 **59,3287.0** number of **retweets**, 524,243.0 unique retweets, 69,044.00 repeated retweets <br/>
 The subject are the tweets.
 For this project subject are the tweets only. (_I'm planning to continue my research on the Retweet subset as well_). <br/>
-**2. Second: **Languages**.  <br/>
+**2. Second: Languages**.  <br/>
 Account_Language: <br/>
 	  162342 -- English <br/>
 	  8125   -- French <br/>
@@ -53,19 +54,18 @@ Account_Language: <br/>
 	  185    -- Indonesian <br/>
 	  53     -- Turkish <br/>
 	  17     -- Romanian <br/>
-	  
-	  
 									
 **ADD COUNT PLOTS FROM SEABORN HERE
+
 3. User Reported Location 
 Tweets Volume per Location.
 `loc_df.groupby('user_reported_location').count()['userid']` _pandas command to count users per location
 `clean_user_reportd_location(loc_df)` _cleaning and aggregating locations function in `src` folder. 
 I wrote a funciton to convert user reported locations to latitude-longitude of the city. Because I love geography I handcoded the latitudes and longitudes from the cities I needed. I used geopandas and matplotlib for the map plot. Below, The Volume of the tweets from each location. 
 
-`	import descartes <br/> 
-	import geopandas as gpd <br/>
-	from shapely.geometry import Point, Polygon <br/>`
+`import descartes` <br/>  
+`import geopandas as gpd`  <br/>
+`from shapely.geometry import Point, Polygon` <br/>
 
 Clean Up Cities/Countries `loc_clean.py` in `src` 
 <p align="center"> 
@@ -94,23 +94,26 @@ cats, catlike, and catty, cat ---> cat <br/>
 Standard stop words library from nltk was used. <br/>
 `stop_words = set(nltk.corpus.stopwords.words('english'))` <br/>
 
+
 1.4 In addition the least meaningful words were arbitrary removed by the author using [**google trends**](https://trends.google.com/trends) and human comprehension. 
+additional stopwords list (_developing_) in add_stop_w.py
 
 1.5. Emojies, Urls, Hashtags and Mentions were out of scope of this research and removed from text using [Twitter text preprocessor](https://pypi.org/project/tweet-preprocessor/): </br>
 `pip instal tweet-preprocessor`
+
+
 <p align="center"> 
-<img src=/plots/word_cloud.png width="300"/>
-</p>
-<p align="right"> 
-<img src=/images/em_wheel.png width="150"/>
+<img src=/plots/wordcloud.png width="1114"/>
 </p>
 
-## Emotion Detector 
+<p align="center"> 
+<img src=/images/em_wheel.png width="243"/>
+</p>
+
+
 Most schools of thought can confirm: Emotion is often the driving force behind motivation, positive or negative as well as the ability of words represent emotional experience[1]. 
 
-<p align="left"> 
-<img src=/images/obninsk.png width="50"/>
-</p>
+
 ### Methodology. 
 
 Basic Emotions: During the 1970s, psychologist Paul Eckman identified six basic emotions that he suggested were universally experienced in all human cultures. The emotions he identified were happiness, sadness, disgust, fear, surprise, and anger. 
