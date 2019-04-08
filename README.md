@@ -20,8 +20,9 @@
 </p>
 
 * [Twitter Election Integrity Data Set, Russia](https://about.twitter.com/en_us/values/elections-integrity.html#data) include all public, non deleted Tweets from accounts Twitter believes are connected to state-backed information operations. Tweets deleted by these users prior to their suspension (which are not included in this dataset) comprise less than 1% of their overall activity. <br/> 
-* Dataset consisted of 416 accounts allegedly originated in Russia and their tweet content. 
-**Features.** Blue represents missing values. 
+* Dataset consisted of 416 accounts allegedly originated in Russia and their tweet content. <br/>
+
+#### Data Set Features and Null Values (blue). ####
 <p align="center"> 
 <img src=/images/isnull.png width="500"/>
 </p>
@@ -31,18 +32,20 @@
 `Pandas, numpy`  - Data Handling, Linear ALgebra <br/>
 `Gensim, gensim corpora, gensim Coherence Model, Sklearn` - Topic Modeling <br/>
 `Sklearn CountVectorizer` <br/>
-`Matplotlib, Seaborn, pyLDAvis, WordCloud` -- Visualizations <br/>
+`Matplotlib, Seaborn, pyLDAvis, WordCloud` - Visualizations <br/>
 `NLTK, nltk.stem.wordnet.WordNetLemmatizer, nltk.stem.snowball.SnowballStemmer` - Text preprocessing using NLP <br/>
 Python Regual expressions library, twitter text preprocessor <br/>
 `Vader` - Twitter Sentiment <br/>
  
 Target variable:  **Natural Language Components of tweets text**, it’s similarity and emotion weight of tweets. With this in mind I started with looking into the texts tweets. <br/>
 
-1. First Thing: Tweets or Retweets? <br/>
+**1. First Thing: Tweets or Retweets?** <br/>
+
 **171,959.0** number of **tweets** 143,308.0 unique tweets , 28,651.0 repeated tweets <br/>
 **59,3287.0** number of **retweets**, 524,243.0 unique retweets, 69,044.00 repeated retweets <br/>
-For this project I subseted the data by the tweets only. I'm planning to continue my research on the Retweet subset as well. <br/>
-2. Second thing to look: **Languages**.  <br/>
+The subject are the tweets.
+For this project subject are the tweets only. (_I'm planning to continue my research on the Retweet subset as well_). <br/>
+**2. Second: **Languages**.  <br/>
 Account_Language: <br/>
 	  162342 -- English <br/>
 	  8125   -- French <br/>
@@ -50,13 +53,24 @@ Account_Language: <br/>
 	  185    -- Indonesian <br/>
 	  53     -- Turkish <br/>
 	  17     -- Romanian <br/>
+	  
+	  
 									
 **ADD COUNT PLOTS FROM SEABORN HERE
 3. User Reported Location 
-|![tw](/images/user_reported_location.png)| ![re](/images/user_reported_location_retweets.png)|![map](/plots/tweets_map.png width="1000")
-|:----:|:----:|:----:|
+Tweets Volume per Location.
+`loc_df.groupby('user_reported_location').count()['userid']` _pandas command to count users per location
+`clean_user_reportd_location(loc_df)` _cleaning and aggregating locations function in `src` folder. 
+I wrote a funciton to convert user reported locations to latitude-longitude of the city. Because I love geography I handcoded the latitudes and longitudes from the cities I needed. I used geopandas and matplotlib for the map plot. Below, The Volume of the tweets from each location. 
 
-Mostly user reported location was **US** across both tweets and retweets, with retweets not coming specifically from any countries from Europe/Asia/Russia. Under **worldwide** category were aggregated reported locations that had more than one location listed in their profile. <br/>
+`	import descartes <br/> 
+	import geopandas as gpd <br/>
+	from shapely.geometry import Point, Polygon <br/>`
+
+Clean Up Cities/Countries `loc_clean.py` in `src` 
+<p align="center"> 
+<img src=/plots/user_location.png width="1114"/>
+</p>
 
 **Final Subset** included **333** Accounts and their Tweet Texts. <br/>
  
