@@ -130,22 +130,9 @@ Linear Algebra Magic:
 
 ## RESULTS
 
-### Emotion Detection Words Frequencies Timeseries.
-
-<p align="center">
-<img src=/plots/monthly_tweet_volume.png width="1114">
+<p align="center"> 
+<img src=/images/timeseries.png width="1114">
 </p>
-
-### Normalized Emotion Detection Words Frequencies Timeseries. 
-<p align="center">
-<img src=/plots/norm_monthly_tweet_volume.png width="1114">
-</p>
-
-### Monthly Tweets Activity.  
-<p align="center">
-<img src=/plots/tweet_volume.png width="1114">
-</p>
-
 
 
 ## Results Discussion:
