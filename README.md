@@ -49,15 +49,10 @@ Account_Language: <br/>
 									
 **ADD COUNT PLOTS FROM SEABORN HERE
 3. User Reported Location 
-
-
-
-|![tw](/images/user_reported_location.png)| ![re](/images/user_reported_location_retweets.png)|![map](/plots/tweets_map.png width="1000")|
+|![tw](/images/user_reported_location.png)| ![re](/images/user_reported_location_retweets.png)|![map](/plots/tweets_map.png width="1000")
 |:----:|:----:|:----:|
 
 Mostly user reported location was **US** across both tweets and retweets, with retweets not coming specifically from any countries from Europe/Asia/Russia. Under **worldwide** category were aggregated reported locations that had more than one location listed in their profile. <br/>
-
-
 
 **Final Subset** included **333** Accounts and their Tweet Texts. <br/>
  
@@ -67,33 +62,33 @@ Mostly user reported location was **US** across both tweets and retweets, with r
 </p>
 
 1.1.Words were lemmatized, stemmed. Punctuation removed. 
-In linguistic morphology and information retrieval in **lemmatization** we are removing word endings to get to our target, the base or dictionary form of a word.  
-Kittens - kitten, better - good, walking  - walk. 
+In linguistic morphology and information retrieval in **lemmatization** we are removing word endings to get to our target, the base or dictionary form of a word.  <br/>
+Kittens - kitten, better - good, walking  - walk. <br/>
 
-1.2. Stemming, the process of reducing inflected (or sometimes derived) words to their word stem, base or root form:
-cats, catlike, and catty, cat ---> cat
+1.2. Stemming, the process of reducing inflected (or sometimes derived) words to their word stem, base or root form: <br/>
+cats, catlike, and catty, cat ---> cat <br/>
 
-`lemmer = WordNetLemmatizer()`
+`lemmer = WordNetLemmatizer()` <br/>
 
-`stemmer = SnowballStemmer('english')`
+`stemmer = SnowballStemmer('english')` <br/>
 
-1.3. Stop words. Noise. 
+1.3. Stop words. Noise. <br/>
 Standard stop words library from nltk was used. <br/>
-`stop_words = set(nltk.corpus.stopwords.words('english'))`
+`stop_words = set(nltk.corpus.stopwords.words('english'))` <br/>
 
 1.4 In addition the least meaningful words were arbitrary removed by the author using [**google trends**](https://trends.google.com/trends) and human comprehension. 
 
 1.5. Emojies, Urls, Hashtags and Mentions were out of scope of this research and removed from text using [Twitter text preprocessor](https://pypi.org/project/tweet-preprocessor/): </br>
-
 `pip instal tweet-preprocessor`
+
  ![Emototions Wheel](plots/word_cloud.png )
 
-## Emotion Detector 
-<p align="right"> 
-<img src=/images/em_wheel.png width="300"/>
-</p>
-Most schools of thought can confirm: Emotion is often the driving force behind motivation, positive or negative as well as the ability of words represent emotional experience[1]. 
 
+<p align="right"> 
+<img src=/images/em_wheel.png width="200"/>
+</p>
+## Emotion Detector 
+Most schools of thought can confirm: Emotion is often the driving force behind motivation, positive or negative as well as the ability of words represent emotional experience[1]. 
 
 ### Methodology. 
 Basic Emotions: During the 1970s, psychologist Paul Eckman identified six basic emotions that he suggested were universally experienced in all human cultures. The emotions he identified were happiness, sadness, disgust, fear, surprise, and anger. 
