@@ -1,7 +1,5 @@
 
-<p align="center"> 
-<img src=images/ai_en_intro.png width="888"/>
-</p>
+# AI Emotion Detector and Topic Modeling in Suspended Elections-Related Twitter Accounts
 
 |![twitter snippet](/images/twittersnippet.png)| ![twitter logo](/images/logo_twitter.png)|
 |----------------------------------------------|------------------------------------------|
