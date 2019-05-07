@@ -1,6 +1,5 @@
-<p align="center"> 
-<img src=/images/ai_em_intro.png width="888"/>
-</p>
+
+![intro_slide](/images/ai_em_intro.png)
 
 |![twitter snippet](/images/twittersnippet.png)| ![twitter logo](/images/logo_twitter.png)|
 |----------------------------------------------|------------------------------------------|
