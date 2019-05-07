@@ -1,5 +1,5 @@
 <p align="center"> 
-<img src=/images/ai_em_intro.png width="1114"/>
+<img src=/images/ai_em_intro.png width="943"/>
 </p>
 
 |![twitter snippet](/images/twittersnippet.png)| ![twitter logo](/images/logo_twitter.png)|
@@ -191,12 +191,12 @@ By Examining the clusters we can identify and suggest the latent groups discover
 <img src=/images/lda_results.png width="888"/>
 </p>
 
-**1. Agression. Race. Terror. Disgust. <br/> 
-**2. Politics. Ashley Madison. Topless. Donald. <br/> And other -- make a cloud
+**1. Agression. Race. Terror. Disgust.** <br/> 
+**2. Politics. Ashley Madison. Topless. Donald. ** <br/> 
 **3. America. Hate. Shumer** <br/>
-The first 3 topics are of primery interest since they are talking about American politics which is interesting find and can be considered as a feature in the future predictive models. 
+The first 3 topics comprise about **94%** all data and are of primary interest since they are talking about American politics which is interesting find and can be considered as a feature in the future predictive models. 
 
-4. Zimbabwe. <br/> English Alaphabet. Need to adjust the data cleaning pipeline to only recognize English words/ detect non english words. 
+4. Zimbabwe. <br/> Model detected a small portion of Zimbabwe language tweets. English Alaphabet. Need to adjust the data cleaning pipeline to only recognize English words/ detect non english words. 
 5. European tennis players. Sports. <br/>
 6. Sirya <br/>
 7. Turkish, azeri. <br/>
