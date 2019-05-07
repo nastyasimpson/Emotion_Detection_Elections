@@ -1,4 +1,5 @@
-# AI Emotion Detector and Topic Modeling in Suspended Elections-Related Twitter Accounts 
+
+![intro_slide](/images/ai_em_intro.png)
 
 |![twitter snippet](/images/twittersnippet.png)| ![twitter logo](/images/logo_twitter.png)|
 |----------------------------------------------|------------------------------------------|
@@ -49,17 +50,17 @@ With this in mind I started with looking into the texts tweets. <br/>
 
 I selected **tweets** as my target
 
-For this project subject are the tweets only. (_I'm planning to continue my research on the Retweet subset as well_). <br/>
+For this project subject are the tweets only. (I'm planning to continue my research on the Retweet subset as well_). <br/>
 **2. Languages**.  English was selected as a language of this research given language proportion into consideration.  <br/>
 Final English Only Subset of tweets had 333 accounts<br/>
 Account_Language: <br/> 
 
-	  162342 -- English <br/>
-	  8125   -- French <br/>
-	  1237   -- Russian <br/>
-	  185    -- Indonesian <br/>
-	  53     -- Turkish <br/>
-	  17     -- Romanian <br/>
+	  162342 -- English 
+	  8125   -- French 
+	  1237   -- Russian 
+	  185    -- Indonesian 
+	  53     -- Turkish 
+	  17     -- Romanian 
 					
 
 **3. User Reported Location & Tweets Volume per Location.** <br/>
@@ -168,6 +169,10 @@ A document typically concerns multiple topics in different proportions; thus, in
 **LDA is an unsupervised technique**, meaning that we don’t know prior to running the model **how many topics** exits in our corpus. **Coherence score** is a metric and main technique used to estimate the number of topics and to measure human understandability and interpretability.
 
 ### Results visuals are available at `lda.html` file for now that can be viewd in a browser. 
+<p align="center"> 
+<img src=/images/lda_coh.png width="888"/>
+</p>
+
 ## Model Evaluation. Coherence Score. 
 
 A set of statements or facts is said to be coherent, if they support each other.
@@ -181,14 +186,17 @@ Interest into coherence measures has arisen in text mining, as unsupervised lear
 ## RESULTS
 Topics Model Can be seen following this link: **html link to oprn pyLDAvis: LINK        
 By Examining the clusters we can identify and suggest the latent groups discovered: We can see these main Clusters: 
+<p align="center"> 
+<img src=/images/lda_results.png width="888"/>
+</p>
 
-1. Agression. Race. Terror. Disgust. <br/> 
-2. Politics. Ashley Madison. Topless. Donald. <br/> And other -- make a cloud
-3. America Hate Shumer <br/>
-The first 3 topics are of primery interest since they are talking about American politics which is interesting find and can be considered as a feature. 
+**1. Agression. Race. Terror. Disgust.** <br/> 
+**2. Politics. Ashley Madison. Topless. Donald. ** <br/> 
+**3. America. Hate. Shumer** <br/>
+The first 3 topics comprise about **94%** all data and are of primary interest since they are talking about American politics which is interesting find and can be considered as a feature in the future predictive models. 
 
-4. Zimbabwe. <br/> WIll try to detect non english words. 
-5. European tennis. Sports. <br/>
+4. Zimbabwe. <br/> Model detected a small portion of Zimbabwe language tweets. English Alaphabet. Need to adjust the data cleaning pipeline to only recognize English words/ detect non english words. 
+5. European tennis players. Sports. <br/>
 6. Sirya <br/>
 7. Turkish, azeri. <br/>
 
@@ -204,21 +212,21 @@ Topic distribution across documents. Find the most representative documents for 
  
 ## Conclusions
 
-Inspired by the findings of this eda to continue searching for latent features available to be discovered using modern machine learning techniques and tools.
+Inspired by the findings of this EDA to continue searching for latent features available to be discovered using modern machine learning techniques and tools. 
 
 ## Acknowledgements
-* I wanted to thank my family Trent Simpson, Elena Fedorovskaya, Andrew Simpson, Debby Bell, Lena Manakai, Boris Sarapultsev for supporting my desision to finally chase my dream and dive deep into science and research, answering my phone calls in the middle of the night and offering ton of support all arounf. It wouldn't be possible without you.  
-* Ter-Saakov Sergei A.. My math guru, my teacher and the reason I love mathematics and good at it :-) 
+* I wanted to thank my family: Trent Simpson, Elena Fedorovskaya, Andrew Simpson, Debby Bell, Lena Manakai, Boris Sarapultsev for supporting my desision to finally chase my dream and dive deep into science and research, answering my phone calls in the middle of the night and offering ton of support. It wouldn't be possible without you.  
+* Ter-Saakov Sergei A. My math guru, my teacher and the reason I love mathematics and good at it :-) 
 * Galvanize Instructers team for their support and patience
-* My friends for understanding my complete mia in the past 4 month and for always be available to for me. 
+* My friends for understanding my complete mia in the past 4 month and for always be there for me. 
 
 
 ## About me 
-I am an aspiring Data Scientist who is driven by problem-solving and adding value to the bottom line through improving decision-making across business processes.  I live in San Francisco and have a background in small business management and Masters in Psychology. I am looking to bridge my career into Data Science role, currently enrolled in 700+ hours Galvanize Data Science Immersive Program. I am experienced at working in a fast-paced, high volume environment which demands strong organizational and interpersonal skills. 
-I look forward to adding value to your organization. I believe in doing better than perfect. I believe in Design Thinking and in cultivating empathy anywhere I am at.   
+I am an aspiring Data Scientist who is driven by problem-solving and adding value to the bottom line through improving decision-making across business processes.  I live in San Francisco and have a background in small business management and Masters in Psychology. I am looking to bridge my career into Data Science role. I completed 700+ hours Galvanize Data Science Immersive Program covering core Machine Learning Algorithms, Statistics, and Probability. I am experienced at working in a fast-paced, high volume environment which demands strong organizational and interpersonal skills. 
+I look forward to adding value to your organization. I believe that **doing is better than perfect** and I am continuously studying to elevate myself. Also, I believe in Design Thinking and in cultivating empathy anywhere I am at.  
 
 [**My LinkedIn**](https://www.linkedin.com/in/anastasia-simpson-61402629/) 
-## References
+## References (Developing)
 1.  Gaulin, Steven J.C. and Donald H. McBurney. Evolutionary Psychology. Prentice Hall. 2003. ISBN 978-0-13-111529-3, Chapter 6, p 121-142.
 2. D. M. Blei, A. Y. Ng, and M. I. Jordan. Latent Dirichlet allocation. Journal of Machine Learning Research, 3:993–1022, 2003
 ## References are Developing
